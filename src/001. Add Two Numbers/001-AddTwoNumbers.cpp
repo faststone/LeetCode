@@ -86,4 +86,3 @@ int main()
     cout << "sortName: " << double(endTime - startTime) / CLOCKS_PER_SEC << " s" << endl;
     return 0;
 }
-
