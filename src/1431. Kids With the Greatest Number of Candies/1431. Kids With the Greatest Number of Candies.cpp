@@ -21,32 +21,30 @@ using namespace std;
 *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 * };
 */
-
-//ตÝน้
-
+ 
 class Solution {
 public:
-    vector<int> swapNumbers(vector<int>& numbers) {
-        numbers[0] = numbers[0] + numbers[1];
-        numbers[1] = numbers[0] - numbers[1];
-        numbers[0] = numbers[0] - numbers[1];
-        return numbers;
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        vector<bool> kidsCandies;
+        int max = *max_element(candies.begin(), candies.end());
+        for (int i = 0; i < candies.size(); i++)
+        {
+            if (candies[i]+ extraCandies >= max)
+            {
+                kidsCandies.push_back(true);
+            }else
+            kidsCandies.push_back(false);
+        }
+        return kidsCandies;
     }
 };
+
 int main()
 { 
-    std::vector<float>resultSet;
-    resultSet.push_back(1.2);
-    resultSet.push_back(2.2);
-    resultSet.push_back(3.2);
-    resultSet.push_back(4.2);
-    resultSet.push_back(0);
-    resultSet.push_back(0);
-    resultSet.push_back(0);
-    int badPixNumber = std::count(resultSet.begin(), resultSet.end(), 0);
-    vector<int> numbers = {769466698,1711112269};
+    vector<int> nums = { 2,3,5,1,3 };
+    int value = 3;
     Solution S;
-    S.swapNumbers(numbers);
+    S.kidsWithCandies(nums,value);
  
     clock_t startTime = clock();
     clock_t endTime = clock();
