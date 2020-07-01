@@ -24,26 +24,24 @@ using namespace std;
  
 class Solution {
 public:
-    int subtractProductAndSum(int n) {
-        std::string s = to_string(n);
-        int sum1 = 1;
-        int sum2 = 0;
-        for (int i = 0; i < s.size();i++)
+    vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
+        vector<int> target;
+        int lastIndex = 0;
+        for (int i = 0; i < nums.size(); i++)
         {
-            int value = s[i] -'0';
-            sum1 *= value;
-            sum2 += value;
+            target.insert(target.begin() + index[i], nums[i]);
         }
-        return sum1 - sum2;
+        return target;
     }
 };
 
 int main()
 { 
-    vector<int> nums = { 2,3,5,1,3 };
-    int value = 4421;
+    vector<int> nums = { 0,1,2,3,4 };
+    vector<int> index = { 0,1,2,2,1 };
+ 
     Solution S;
-    std::cout < S.subtractProductAndSum(value) << std::endl;
+    S.createTargetArray(nums,index);
  
     clock_t startTime = clock();
     clock_t endTime = clock();

@@ -9,7 +9,7 @@
 #include <queue>
 #include "ListNode.h"
 #include "BinTree.h"
- 
+
 using namespace std;
 #define null 0
 /**
@@ -21,30 +21,26 @@ using namespace std;
 *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 * };
 */
- 
+
 class Solution {
 public:
-    int subtractProductAndSum(int n) {
-        std::string s = to_string(n);
-        int sum1 = 1;
-        int sum2 = 0;
-        for (int i = 0; i < s.size();i++)
+    int findNumbers(vector<int>& nums) {
+        int cnt = 0;
+        for (int i = 0; i < nums.size(); i++)
         {
-            int value = s[i] -'0';
-            sum1 *= value;
-            sum2 += value;
+            if ((nums[i] >= 10 && nums[i] < 100) || (nums[i] >= 1000 && nums[i] < 10000) || nums[i] == 100000)
+                cnt++;
         }
-        return sum1 - sum2;
+        return cnt;
     }
 };
 
 int main()
-{ 
-    vector<int> nums = { 2,3,5,1,3 };
-    int value = 4421;
+{
+    vector<int> nums = { 555,901,482,1771};
     Solution S;
-    std::cout < S.subtractProductAndSum(value) << std::endl;
- 
+    cout << S.findNumbers(nums) << endl;
+
     clock_t startTime = clock();
     clock_t endTime = clock();
     cout << "sortName: " << double(endTime - startTime) / CLOCKS_PER_SEC << " s" << endl;

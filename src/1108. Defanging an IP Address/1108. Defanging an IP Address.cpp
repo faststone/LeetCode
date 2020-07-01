@@ -21,29 +21,26 @@ using namespace std;
 *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 * };
 */
- 
+
 class Solution {
 public:
-    int subtractProductAndSum(int n) {
-        std::string s = to_string(n);
-        int sum1 = 1;
-        int sum2 = 0;
-        for (int i = 0; i < s.size();i++)
+    string defangIPaddr(string address) {
+        int pos = address.find(".");
+        while (pos != -1)
         {
-            int value = s[i] -'0';
-            sum1 *= value;
-            sum2 += value;
+            address.replace(pos, string(".").length(), "[.]");
+            pos = address.find(".");
         }
-        return sum1 - sum2;
+        return address;
     }
 };
 
+
 int main()
 { 
-    vector<int> nums = { 2,3,5,1,3 };
-    int value = 4421;
+    string address = "255.100.50.0";
     Solution S;
-    std::cout < S.subtractProductAndSum(value) << std::endl;
+    S.defangIPaddr(address);
  
     clock_t startTime = clock();
     clock_t endTime = clock();
