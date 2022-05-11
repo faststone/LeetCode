@@ -8,7 +8,7 @@
 #include <map>
 #include <queue>
 #include "ListNode.h"
-#include "BinTree.h"
+#include "BSTTree.h"
  
 using namespace std;
 #define null 0
